@@ -23,7 +23,6 @@ namespace Navigation
 
             builder.Services.AddViewModel<JoinViewModel, JoinView>();
             builder.Services.AddViewModel<IndexViewModel, IndexView>();
-            builder.Services.AddViewModel<OccupationViewModel, OccupationView>();
             builder.Services.AddViewModel<AddressViewModel, AddressView>();
 
             return builder.Build();
