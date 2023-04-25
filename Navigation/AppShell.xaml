@@ -5,4 +5,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:Navigation.Pages"
     xmlns:profilePages="clr-namespace:Navigation.Pages.Profile"
-    Shell.FlyoutBehavior="Disabled" />
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        Title="Profile"
+        ContentTemplate="{DataTemplate profilePages:IndexView}"
+        Route="profile" />
+
+    <ShellContent
+        Title="Join"
+        ContentTemplate="{DataTemplate pages:JoinView}"
+        Route="join" />
+
+</Shell>
