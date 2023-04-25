@@ -8,6 +8,8 @@ namespace Navigation
         public AppShell()
         {
             InitializeComponent();
+
+            Routing.RegisterRoute("profile/address", typeof(AddressView));
         }
     }
 }

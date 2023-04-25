@@ -14,7 +14,13 @@ namespace Navigation.Pages
         [RelayCommand]
         private async Task Submit()
         {
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "new", true },
+                { "profile", new Entities.Profile(Name, Address) }
+            };
 
+            await Shell.Current.GoToAsync("//profile", parameters);
         }
     }
 }

@@ -3,6 +3,8 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Navigation.Pages.Profile
 {
+    [QueryProperty(nameof(IsNew), "new")]
+    [QueryProperty(nameof(Profile), "profile")]
     public partial class IndexViewModel : ObservableObject
     {
         [ObservableProperty]
@@ -18,7 +20,7 @@ namespace Navigation.Pages.Profile
         [RelayCommand]
         private async Task ViewAddress()
         {
-
+            await Shell.Current.GoToAsync($"address?address={Profile.Address}");
         }
 
         partial void OnIsNewChanged(bool value)

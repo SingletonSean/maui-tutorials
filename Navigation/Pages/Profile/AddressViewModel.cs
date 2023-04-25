@@ -12,7 +12,7 @@ namespace Navigation.Pages.Profile
         [RelayCommand]
         private async Task Back()
         {
-
+            await Shell.Current.Navigation.PopAsync();
         }
     }
 }

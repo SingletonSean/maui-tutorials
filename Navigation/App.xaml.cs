@@ -11,6 +11,8 @@
 
         protected override async void OnStart()
         {
+            await Shell.Current.GoToAsync("//join");
+
             base.OnStart();
         }
     }
