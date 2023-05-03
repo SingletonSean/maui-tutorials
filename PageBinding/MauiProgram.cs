@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using PageBinding.Entities;
+using PageBinding.Pages;
 
 namespace PageBinding
 {
@@ -17,13 +18,27 @@ namespace PageBinding
                 });
 
 #if DEBUG
-		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
             var services = builder.Services;
 
             services.AddSingleton(new Profile("SingletonSean", "123 Main St."));
 
+            services.AddSingleton<ProfileViewModel>();
+            services.AddSingleton<StubProfileViewModel>();
+
+            services.AddView<ProfileView, ProfileViewModel>();
+
             return builder.Build();
+        }
+
+        private static void AddView<TView, TViewModel>(this IServiceCollection services)
+            where TView : ContentPage, new()
+        {
+            services.AddSingleton<TView>(serviceProvider => new TView()
+            {
+                BindingContext = serviceProvider.GetRequiredService<TViewModel>()
+            });
         }
     }
 }

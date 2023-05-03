@@ -3,7 +3,7 @@ using PageBinding.Entities;
 
 namespace PageBinding.Pages
 {
-    public partial class ProfileViewModel : ObservableObject
+    public partial class ProfileViewModel : ObservableObject, IProfileViewBindingContext
     {
         private readonly Profile _profile;
 

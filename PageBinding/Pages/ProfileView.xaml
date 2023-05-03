@@ -3,10 +3,8 @@
     x:Class="PageBinding.Pages.ProfileView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:PageBinding.Pages">
-    <ContentPage.BindingContext>
-        <vm:StubProfileViewModel />
-    </ContentPage.BindingContext>
+    xmlns:vm="clr-namespace:PageBinding.Pages"
+    x:DataType="vm:IProfileViewBindingContext">
     <VerticalStackLayout
         Padding="20"
         HorizontalOptions="Center"
