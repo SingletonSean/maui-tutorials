@@ -25,9 +25,10 @@ namespace PageBinding
             services.AddSingleton(new Profile("SingletonSean", "123 Main St."));
 
             services.AddSingleton<ProfileViewModel>();
-            services.AddSingleton<StubProfileViewModel>();
-
-            services.AddView<ProfileView, ProfileViewModel>();
+            services.AddSingleton<ProfileView>(serviceProvider => new ProfileView()
+            {
+                BindingContext = serviceProvider.GetRequiredService<ProfileViewModel>()
+            });
 
             return builder.Build();
         }

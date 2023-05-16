@@ -14,7 +14,6 @@
             HorizontalOptions="Center"
             Text="{Binding Name}"
             VerticalOptions="Center" />
-
         <Label
             Margin="0,10,0,0"
             HorizontalOptions="Center"
@@ -22,3 +21,4 @@
             VerticalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>
+
