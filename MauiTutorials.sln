@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Navigation", "Navigation\Navigation.csproj", "{9F407A79-36C1-4CE6-AAB3-A20588429B6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageBinding", "PageBinding\PageBinding.csproj", "{5E6B65B1-A598-461A-AD45-0081DE345246}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageBinding", "PageBinding\PageBinding.csproj", "{5E6B65B1-A598-461A-AD45-0081DE345246}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockedMode", "MockedMode\MockedMode.csproj", "{9DFD308B-C0E8-49A1-97AF-AD5AC1B0C2D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,12 @@ Global
 		{5E6B65B1-A598-461A-AD45-0081DE345246}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E6B65B1-A598-461A-AD45-0081DE345246}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5E6B65B1-A598-461A-AD45-0081DE345246}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9DFD308B-C0E8-49A1-97AF-AD5AC1B0C2D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DFD308B-C0E8-49A1-97AF-AD5AC1B0C2D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DFD308B-C0E8-49A1-97AF-AD5AC1B0C2D6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9DFD308B-C0E8-49A1-97AF-AD5AC1B0C2D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFD308B-C0E8-49A1-97AF-AD5AC1B0C2D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DFD308B-C0E8-49A1-97AF-AD5AC1B0C2D6}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
