@@ -3,6 +3,11 @@
     "Windows Machine": {
       "commandName": "MsixPackage",
       "nativeDebugging": false
+    },
+    "Windows Machine (Mocked)": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": false,
+      "commandLineArgs": "MOCKED_MODE"
     }
   }
 }

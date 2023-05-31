@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using MockedMode.Features.ViewRandomCatFact;
+using MockedMode.Features.ViewRandomCatFact.Mock;
 using MockedMode.Pages;
 
 namespace MockedMode
@@ -23,7 +24,16 @@ namespace MockedMode
 
             builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton<IRandomCatFactQuery, RandomCatFactQuery>();
+            bool isMockedMode = Environment.GetCommandLineArgs().Any(a => a == "MOCKED_MODE");
+
+            if (isMockedMode)
+            {
+                builder.Services.AddSingleton<IRandomCatFactQuery, MockRandomCatFactQuery>();
+            }
+            else
+            {
+                builder.Services.AddSingleton<IRandomCatFactQuery, RandomCatFactQuery>();
+            }
 
             builder.Services.AddSingleton<RandomCatFactViewModel>();
             builder.Services.AddSingleton<RandomCatFactView>(s => new RandomCatFactView()
