@@ -2,7 +2,8 @@
 <ContentPage
     x:Class="Navigation.Pages.LandingView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:shared="clr-namespace:Navigation.Shared">
     <VerticalStackLayout Padding="20" MaximumWidthRequest="600">
         <Label
             FontSize="Large"
@@ -11,9 +12,9 @@
             Text="Welcome to the .NET MAUI navigation demo!"
             VerticalOptions="Center" />
 
-        <Button
+        <shared:Link
             Margin="0,20,0,0"
-            Clicked="Button_Clicked"
+            Route="//join"
             Text="Get Started" />
     </VerticalStackLayout>
 </ContentPage>
