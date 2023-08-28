@@ -15,6 +15,9 @@
     <MauiXaml Update="Pages\JoinView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\LandingView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\Profile\AddressView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Resources\Styles\Styles.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Shared\Link.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>
