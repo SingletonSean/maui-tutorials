@@ -6,6 +6,7 @@
     xmlns:pages="clr-namespace:Navigation.Pages"
     xmlns:profilePages="clr-namespace:Navigation.Pages.Profile"
     Shell.FlyoutBehavior="Disabled">
-    <ShellContent ContentTemplate="{DataTemplate profilePages:IndexView}" Route="profile" />
+    <ShellContent ContentTemplate="{DataTemplate pages:LandingView}" Route="landing" />
     <ShellContent ContentTemplate="{DataTemplate pages:JoinView}" Route="join" />
+    <ShellContent ContentTemplate="{DataTemplate profilePages:IndexView}" Route="profile" />
 </Shell>
