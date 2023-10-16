@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ConditionalRender.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ConditionalRender">
+    <VerticalStackLayout
+        Padding="50"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <HorizontalStackLayout VerticalOptions="Center">
+            <CheckBox x:Name="isEnabledCheckbox" />
+            <Label Text="Is Enabled?" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <local:If Margin="0,10,0,0" Condition="{Binding IsChecked, Source={x:Reference isEnabledCheckbox}}">
+            <local:If.True>
+                <Label FontSize="Large" Text="Enabled" />
+            </local:If.True>
+            <local:If.False>
+                <Label FontSize="Large" Text="Disabled" />
+            </local:If.False>
+        </local:If>
+    </VerticalStackLayout>
+</ContentPage>
