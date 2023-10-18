@@ -17,15 +17,29 @@
             <Label Text="Is Enabled?" VerticalOptions="Center" />
         </HorizontalStackLayout>
 
-        <VerticalStackLayout Margin="0,10,0,0">
-            <Label
-                FontSize="Large"
-                IsVisible="{Binding IsChecked, Source={x:Reference isEnabledCheckbox}}"
-                Text="Enabled" />
-            <Label
-                FontSize="Large"
-                IsVisible="{Binding IsChecked, Source={x:Reference isEnabledCheckbox}, Converter={StaticResource InvertedBoolConverter}}"
-                Text="Disabled" />
-        </VerticalStackLayout>
+        <local:If Margin="0,10,0,0" Condition="{Binding IsChecked, Source={x:Reference isEnabledCheckbox}}">
+            <local:If.True>
+                <Label FontSize="Large" Text="Enabled" />
+            </local:If.True>
+            <local:If.False>
+                <Label FontSize="Large" Text="Disabled" />
+            </local:If.False>
+        </local:If>
+
+        <ContentView Margin="0,10,0,0">
+            <ContentView.Triggers>
+                <DataTrigger
+                    Binding="{Binding IsChecked, Source={x:Reference isEnabledCheckbox}}"
+                    TargetType="ContentView"
+                    Value="True">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Label FontSize="Large" Text="Enabled" />
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </ContentView.Triggers>
+            <Label FontSize="Large" Text="Disabled" />
+        </ContentView>
     </VerticalStackLayout>
 </ContentPage>
