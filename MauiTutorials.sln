@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockedMode", "MockedMode\Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConditionalRender", "ConditionalRender\ConditionalRender.csproj", "{24C1D5A5-02CD-4315-95AC-8C1BFAEF3B1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactiveCodeBehind", "ReactiveCodeBehind\ReactiveCodeBehind.csproj", "{D5E77C63-1A9D-4AB2-948F-049620FD991F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveCodeBehind", "ReactiveCodeBehind\ReactiveCodeBehind.csproj", "{D5E77C63-1A9D-4AB2-948F-049620FD991F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentViewComponents", "ContentViewComponents\ContentViewComponents.csproj", "{A11A43A3-D299-4A2B-AFE7-41474AF4889C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,12 @@ Global
 		{D5E77C63-1A9D-4AB2-948F-049620FD991F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5E77C63-1A9D-4AB2-948F-049620FD991F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5E77C63-1A9D-4AB2-948F-049620FD991F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A11A43A3-D299-4A2B-AFE7-41474AF4889C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11A43A3-D299-4A2B-AFE7-41474AF4889C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11A43A3-D299-4A2B-AFE7-41474AF4889C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A11A43A3-D299-4A2B-AFE7-41474AF4889C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11A43A3-D299-4A2B-AFE7-41474AF4889C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11A43A3-D299-4A2B-AFE7-41474AF4889C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

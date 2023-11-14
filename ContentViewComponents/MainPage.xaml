@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ContentViewComponents.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ScrollView Margin="20" MaximumWidthRequest="600">
+        <VerticalStackLayout>
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Border Padding="20" StrokeShape="RoundRectangle 10">
+                    <VerticalStackLayout>
+                        <Label FontSize="Large" Text="Spicy Tuna Roll" />
+                        <Label Margin="0,20,0,0" Text="One of the greatest sushi rolls." />
+                        <Button
+                            Margin="0,20,0,0"
+                            Command="{Binding AddToCartCommand}"
+                            FontAttributes="Bold"
+                            Text="Add to Cart" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Border Padding="20" StrokeShape="RoundRectangle 10">
+                    <VerticalStackLayout>
+                        <Label FontSize="Large" Text="Yellowtail Scallion Roll" />
+                        <Label Margin="0,20,0,0" Text="A nice roll to switch it up sometimes." />
+                        <Button
+                            Margin="0,20,0,0"
+                            Command="{Binding AddToCartCommand}"
+                            FontAttributes="Bold"
+                            Text="Add to Cart" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Border Padding="20" StrokeShape="RoundRectangle 10">
+                    <VerticalStackLayout>
+                        <Label FontSize="Large" Text="California Roll" />
+                        <Label Margin="0,20,0,0" Text="A classic sushi roll." />
+                        <Button
+                            Margin="0,20,0,0"
+                            Command="{Binding AddToCartCommand}"
+                            FontAttributes="Bold"
+                            Text="Add to Cart" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
