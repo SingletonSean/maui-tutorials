@@ -4,21 +4,17 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Resources>
-        <Style x:Key="PrimaryButton" TargetType="Button">
+        <Style Class="PrimaryButton" TargetType="Button">
             <Setter Property="CornerRadius" Value="5" />
             <Setter Property="Padding" Value="20,10" />
             <Setter Property="BackgroundColor" Value="#475BA1" />
             <Setter Property="TextColor" Value="White" />
         </Style>
-        <Style x:Key="NavButton" TargetType="Button">
+        <Style Class="NavButton" TargetType="Button">
             <Setter Property="BackgroundColor" Value="White" />
             <Setter Property="BorderWidth" Value="0" />
             <Setter Property="TextColor" Value="Black" />
         </Style>
-        <Style
-            x:Key="PrimaryNavButton"
-            BasedOn="{StaticResource NavButton}"
-            TargetType="Button" />
     </ContentPage.Resources>
     <ScrollView>
         <Grid Padding="20">
@@ -32,19 +28,19 @@
                 VerticalOptions="Center">
                 <Button
                     Margin="10"
-                    Style="{StaticResource NavButton}"
+                    StyleClass="NavButton"
                     Text="Home" />
                 <Button
                     Margin="10"
-                    Style="{StaticResource NavButton}"
+                    StyleClass="NavButton"
                     Text="Blog" />
                 <Button
                     Margin="10"
-                    Style="{StaticResource NavButton}"
+                    StyleClass="NavButton"
                     Text="About" />
                 <Button
                     Margin="10"
-                    Style="{StaticResource PrimaryNavButton}"
+                    StyleClass="NavButton, PrimaryButton"
                     Text="Sign Up" />
             </HorizontalStackLayout>
             <VerticalStackLayout Grid.Row="1" VerticalOptions="Center">
@@ -56,7 +52,7 @@
                 <Button
                     Margin="0,20,0,0"
                     HorizontalOptions="Center"
-                    Style="{StaticResource PrimaryButton}"
+                    StyleClass="PrimaryButton"
                     Text="Get Started" />
             </VerticalStackLayout>
         </Grid>
