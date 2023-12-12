@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveCodeBehind", "React
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContentViewComponents", "ContentViewComponents\ContentViewComponents.csproj", "{A11A43A3-D299-4A2B-AFE7-41474AF4889C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleClassesRock", "StyleClassesRock\StyleClassesRock.csproj", "{AFCD851A-CBE1-4740-B2BC-34727B398585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StyleClassesRock", "StyleClassesRock\StyleClassesRock.csproj", "{AFCD851A-CBE1-4740-B2BC-34727B398585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResponsiveDesign", "ResponsiveDesign\ResponsiveDesign.csproj", "{2AFB95B8-733A-45CD-906E-689097248634}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,12 @@ Global
 		{AFCD851A-CBE1-4740-B2BC-34727B398585}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFCD851A-CBE1-4740-B2BC-34727B398585}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AFCD851A-CBE1-4740-B2BC-34727B398585}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2AFB95B8-733A-45CD-906E-689097248634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AFB95B8-733A-45CD-906E-689097248634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AFB95B8-733A-45CD-906E-689097248634}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2AFB95B8-733A-45CD-906E-689097248634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AFB95B8-733A-45CD-906E-689097248634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AFB95B8-733A-45CD-906E-689097248634}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
