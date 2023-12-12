@@ -2,51 +2,33 @@
 <ContentPage
     x:Class="ResponsiveDesign.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ResponsiveDesign"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <ContentPage.Resources>
+        <local:GreaterThanConverter x:Key="GreaterThanConverter" />
+    </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout>
-            <Grid Padding="20">
-                <FlexLayout JustifyContent="SpaceBetween" MaximumWidthRequest="800">
-                    <VerticalStackLayout>
-                        <RoundRectangle
-                            BackgroundColor="Orange"
-                            CornerRadius="20"
-                            HeightRequest="100"
-                            HorizontalOptions="Start"
-                            WidthRequest="100" />
-                    </VerticalStackLayout>
-                    <HorizontalStackLayout Margin="10,0,0,0">
-                        <VerticalStackLayout>
-                            <Label
-                                FontAttributes="Bold"
-                                FontSize="16"
-                                Text="Contact" />
-                            <Label
-                                Margin="0,10,0,0"
-                                FontAttributes="Bold"
-                                FontSize="16"
-                                Text="Follow Us" />
-                        </VerticalStackLayout>
-                        <VerticalStackLayout Margin="50,0,0,0">
-                            <Label
-                                FontAttributes="Bold"
-                                FontSize="16"
-                                Text="Privacy" />
-                            <Label
-                                Margin="0,10,0,0"
-                                FontAttributes="Bold"
-                                FontSize="16"
-                                Text="About" />
-                        </VerticalStackLayout>
-                    </HorizontalStackLayout>
-                </FlexLayout>
-            </Grid>
             <Grid Padding="20">
                 <FlexLayout
                     AlignItems="Center"
                     Direction="Column"
-                    JustifyContent="SpaceBetween"
                     MaximumWidthRequest="800">
+                    <FlexLayout.Style>
+                        <Style TargetType="FlexLayout">
+                            <Style.Triggers>
+                                <DataTrigger
+                                    Binding="{Binding Width, Mode=OneWay, Source={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, Converter={StaticResource GreaterThanConverter}, ConverterParameter=800}"
+                                    TargetType="FlexLayout"
+                                    Value="True">
+                                    <Setter Property="Direction" Value="Row" />
+                                    <Setter Property="AlignItems" Value="Start" />
+                                    <Setter Property="JustifyContent" Value="SpaceBetween" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </FlexLayout.Style>
                     <VerticalStackLayout>
                         <RoundRectangle
                             BackgroundColor="Orange"
@@ -55,31 +37,52 @@
                             HorizontalOptions="Start"
                             WidthRequest="100" />
                     </VerticalStackLayout>
-                    <StackLayout Margin="0,10,0,0">
+                    <StackLayout Margin="0,10,0,0" Orientation="Vertical">
+                        <StackLayout.Style>
+                            <Style TargetType="StackLayout">
+                                <Style.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding Width, Mode=OneWay, Source={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, Converter={StaticResource GreaterThanConverter}, ConverterParameter=800}"
+                                        TargetType="StackLayout"
+                                        Value="True">
+                                        <Setter Property="Orientation" Value="Horizontal" />
+                                        <Setter Property="Margin" Value="10,0,0,0" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackLayout.Style>
                         <VerticalStackLayout>
                             <Label
                                 FontAttributes="Bold"
                                 FontSize="16"
-                                HorizontalTextAlignment="Center"
                                 Text="Contact" />
                             <Label
                                 Margin="0,10,0,0"
                                 FontAttributes="Bold"
                                 FontSize="16"
-                                HorizontalTextAlignment="Center"
                                 Text="Follow Us" />
                         </VerticalStackLayout>
                         <VerticalStackLayout Margin="0,10,0,0">
+                            <VerticalStackLayout.Style>
+                                <Style TargetType="VerticalStackLayout">
+                                    <Style.Triggers>
+                                        <DataTrigger
+                                            Binding="{Binding Width, Mode=OneWay, Source={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, Converter={StaticResource GreaterThanConverter}, ConverterParameter=800}"
+                                            TargetType="VerticalStackLayout"
+                                            Value="True">
+                                            <Setter Property="Margin" Value="50,0,0,0" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </VerticalStackLayout.Style>
                             <Label
                                 FontAttributes="Bold"
                                 FontSize="16"
-                                HorizontalTextAlignment="Center"
                                 Text="Privacy" />
                             <Label
                                 Margin="0,10,0,0"
                                 FontAttributes="Bold"
                                 FontSize="16"
-                                HorizontalTextAlignment="Center"
                                 Text="About" />
                         </VerticalStackLayout>
                     </StackLayout>
@@ -87,5 +90,4 @@
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
