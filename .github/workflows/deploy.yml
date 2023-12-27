@@ -1,0 +1,45 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Install MAUI Workload
+      run: dotnet workload install maui
+
+    - name: Restore
+      run: dotnet restore
+      working-directory: ./ContinuousDeployment
+
+    - name: Build
+      run: dotnet build -c Release -f:net8.0-windows10.0.19041.0
+      working-directory: ./ContinuousDeployment
+
+    - name: Test
+      run: dotnet test -c Release -f:net8.0-windows10.0.19041.0
+      working-directory: ./ContinuousDeployment
+
+    - name: Publish
+      run: dotnet publish -c Release -f:net8.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true
+      working-directory: ./ContinuousDeployment
+
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with: 
+        name: Build
+        path: ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.msix
+
