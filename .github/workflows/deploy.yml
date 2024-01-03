@@ -35,7 +35,7 @@ jobs:
         certutil -decode cert.asc cert.pfx
 
     - name: Install Signing Certficiate
-      run: certutil -user -p ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }} -importpfx cert.pfx -Silent NoRoot
+      run: certutil -user -p ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }} -Silent -importpfx cert.pfx NoRoot
 
     - name: Publish
       run: dotnet publish -c Release -f:net8.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true /p:AppxPackageSigningEnabled=true /p:PackageCertificateThumbprint=${{ secrets.SIGNING_CERTIFICATE_THUMBPRINT }}
