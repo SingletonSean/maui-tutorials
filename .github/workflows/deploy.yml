@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -66,5 +69,5 @@ jobs:
       with:
         tag_name: v${{ steps.extractVersion.outputs.version }}
         files: | 
-          ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.msix
-          ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.cer
+          ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_Test/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_x64.msix
+          ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_Test/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_x64.cer
