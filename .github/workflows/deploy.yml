@@ -1,4 +1,4 @@
-name: Deploy
+﻿name: Deploy
 
 on:
   push:
@@ -41,11 +41,30 @@ jobs:
       run: dotnet publish -c Release -f:net8.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true /p:AppxPackageSigningEnabled=true /p:PackageCertificateThumbprint=${{ secrets.SIGNING_CERTIFICATE_THUMBPRINT }}
       working-directory: ./ContinuousDeployment
 
-    - name: Upload
-      uses: actions/upload-artifact@v4
-      with: 
-        name: Build
-        path: | 
+    - name: Extract Version
+      id: extractVersion
+      shell: pwsh
+      run: |
+        $xml = [Xml] (Get-Content ./ContinuousDeployment/ContinuousDeployment.csproj)
+        [string] $version = [Version] $xml.Project.PropertyGroup.ApplicationDisplayVersion
+        echo "version=$($version)" >> $env:GITHUB_OUTPUT
+
+    - name: Create Tag
+      uses: actions/github-script@v5
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          github.rest.git.createRef({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            sha: context.sha,
+            ref: 'refs/tags/v${{ steps.extractVersion.outputs.version }}'
+          })
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v${{ steps.extractVersion.outputs.version }}
+        files: | 
           ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.msix
           ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/**/*.cer
-
