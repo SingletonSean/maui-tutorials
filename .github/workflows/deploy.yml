@@ -64,10 +64,19 @@ jobs:
             ref: 'refs/tags/v${{ steps.extractVersion.outputs.version }}'
           })
 
+    - name: Rename Auto-Update Installer
+      shell: pwsh
+      run: Rename-Item ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_Test/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_x64.msix AutoUpdate.msix
+
+    - name: Rename Certificate
+      shell: pwsh
+      run: Rename-Item ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_Test/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_x64.cer ContinuousDeployment.cer
+
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: v${{ steps.extractVersion.outputs.version }}
         files: | 
-          ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_Test/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_x64.msix
-          ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_Test/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_x64.cer
+          ./ContinuousDeployment/ContinuousDeployment.appinstaller
+          ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_Test/AutoUpdate.msix
+          ./ContinuousDeployment/bin/Release/net8.0-windows10.0.19041.0/win10-x64/AppPackages/ContinuousDeployment_${{ steps.extractVersion.outputs.version }}.0_Test/ContinuousDeployment.cer
