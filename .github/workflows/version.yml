@@ -1,0 +1,64 @@
+name: Version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        ref: develop
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 21.x
+
+    - name: Install NPM Packages
+      run: npm ci
+      working-directory: ./ContinuousDeployment
+
+    - name: Bump Version
+      run: npm run version
+      working-directory: ./ContinuousDeployment
+
+    - name: Sync Changesets Version
+      shell: pwsh
+      run: |
+        $package = Get-Content -Raw ./ContinuousDeployment/package.json | ConvertFrom-Json
+        $version = $package.version
+
+        $xml = [Xml] (Get-Content ./ContinuousDeployment/ContinuousDeployment.csproj)
+        $xml.Project.PropertyGroup.ApplicationDisplayVersion = $version
+        $xml.Save("./ContinuousDeployment/ContinuousDeployment.csproj")
+
+        $appinstallerXml = [Xml] (Get-Content ./ContinuousDeployment/ContinuousDeployment.appinstaller)
+        $appinstallerNewVersion = "{0}.0" -f $version
+        $appinstallerXml.AppInstaller.MainPackage.Version = $appinstallerNewVersion
+        $appinstallerXml.Save("./ContinuousDeployment/ContinuousDeployment.appinstaller")
+
+    - name: Commit Version Bump
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git add ./ContinuousDeployment/ContinuousDeployment.csproj
+        git add ./ContinuousDeployment/ContinuousDeployment.appinstaller
+        git add ./ContinuousDeployment/CHANGELOG.md
+        git add ./ContinuousDeployment/.changeset
+        git add ./ContinuousDeployment/package.json
+        git commit -m "Bump version"
+
+    - name: Push Version Bump
+      run: git push origin develop
+
+    - name: Develop -> Master
+      run: |
+        git fetch origin master
+        git checkout -b master origin/master
+        git merge develop
+        git push origin master
