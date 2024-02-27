@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <AppInstaller xmlns="http://schemas.microsoft.com/appx/appinstaller/2018" Version="1.0.0.0" Uri="https://github.com/SingletonSean/maui-tutorials/releases/latest/download/ContinuousDeployment.appinstaller">
-  <MainPackage Name="SingletonSean.ContinuousDeployment" Publisher="CN=SingletonSean" Version="2.0.0.0" ProcessorArchitecture="x64" Uri="https://github.com/SingletonSean/maui-tutorials/releases/latest/download/AutoUpdate.msix" />
+  <MainPackage Name="SingletonSean.ContinuousDeployment" Publisher="CN=SingletonSean" Version="2.0.1.0" ProcessorArchitecture="x64" Uri="https://github.com/SingletonSean/maui-tutorials/releases/latest/download/AutoUpdate.msix" />
   <UpdateSettings>
     <OnLaunch HoursBetweenUpdateChecks="0" />
   </UpdateSettings>

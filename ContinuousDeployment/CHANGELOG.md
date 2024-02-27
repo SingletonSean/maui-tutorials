@@ -1,5 +1,11 @@
 # continuousdeployment
 
+## 2.0.1
+
+### Patch Changes
+
+- 3b0fd41: add pat
+
 ## 2.0.0
 
 ### Major Changes
