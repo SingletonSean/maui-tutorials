@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="AccordionComponent.MyAppAccordion"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AccordionComponent">
+    <local:Accordion IsExpanded="False">
+        <local:Accordion.ControlTemplate>
+            <ControlTemplate>
+                <VerticalStackLayout>
+                    <Button
+                        x:Name="Trigger"
+                        Padding="0,10"
+                        Background="#f3f3f3"
+                        CornerRadius="0"
+                        Text="Open"
+                        TextColor="Black">
+                        <Button.Triggers>
+                            <DataTrigger
+                                Binding="{TemplateBinding IsExpanded}"
+                                TargetType="Button"
+                                Value="True">
+                                <Setter Property="Text" Value="Close" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <VerticalStackLayout
+                        x:Name="Content"
+                        Padding="20"
+                        Background="#fafafa">
+                        <Label Text="Hello world!" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </ControlTemplate>
+        </local:Accordion.ControlTemplate>
+    </local:Accordion>
+</ContentView>

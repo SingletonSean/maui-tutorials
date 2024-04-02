@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StyleClassesRock", "StyleCl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResponsiveDesign", "ResponsiveDesign\ResponsiveDesign.csproj", "{2AFB95B8-733A-45CD-906E-689097248634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContinuousDeployment", "ContinuousDeployment\ContinuousDeployment.csproj", "{26A80178-6C3E-48AC-A774-5E8AE0DE79B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContinuousDeployment", "ContinuousDeployment\ContinuousDeployment.csproj", "{26A80178-6C3E-48AC-A774-5E8AE0DE79B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccordionComponent", "AccordionComponent\AccordionComponent.csproj", "{27387359-27D6-401C-A279-C6105C39BF64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,12 @@ Global
 		{26A80178-6C3E-48AC-A774-5E8AE0DE79B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26A80178-6C3E-48AC-A774-5E8AE0DE79B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{26A80178-6C3E-48AC-A774-5E8AE0DE79B1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{27387359-27D6-401C-A279-C6105C39BF64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27387359-27D6-401C-A279-C6105C39BF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27387359-27D6-401C-A279-C6105C39BF64}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{27387359-27D6-401C-A279-C6105C39BF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27387359-27D6-401C-A279-C6105C39BF64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27387359-27D6-401C-A279-C6105C39BF64}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
