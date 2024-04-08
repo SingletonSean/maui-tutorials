@@ -10,31 +10,18 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
                 <ResourceDictionary>
-                    <Style x:Key="ButtonBase" TargetType="Button">
-                        <Setter Property="Padding" Value="10,5" />
-                    </Style>
-                    <Style
-                        x:Key="ButtonPrimary"
-                        BasedOn="{StaticResource ButtonBase}"
-                        TargetType="Button">
-                        <Setter Property="Background" Value="#475BA1" />
-                        <Setter Property="TextColor" Value="White" />
-                    </Style>
-                    <Style
-                        x:Key="ButtonSecondary"
-                        BasedOn="{StaticResource ButtonBase}"
-                        TargetType="Button">
-                        <Setter Property="Background" Value="#FFD97A" />
-                        <Setter Property="TextColor" Value="Black" />
-                    </Style>
-                    <Style
-                        x:Key="ButtonPrimaryOutline"
-                        BasedOn="{StaticResource ButtonBase}"
-                        TargetType="Button">
-                        <Setter Property="Background" Value="White" />
-                        <Setter Property="BorderColor" Value="#475BA1" />
-                        <Setter Property="BorderWidth" Value="1" />
-                        <Setter Property="TextColor" Value="Black" />
+                    <Style TargetType="local:AppButton">
+                        <Setter Property="Padding" Value="20,10" />
+                        <Setter Property="Background" Value="{Binding VariantBackgroundColor, Source={RelativeSource Self}}" />
+                        <Setter Property="TextColor" Value="{Binding VariantForegroundColor, Source={RelativeSource Self}}" />
+                        <Style.Triggers>
+                            <Trigger TargetType="local:AppButton" Property="Outline" Value="True">
+                                <Setter Property="Background" Value="White" />
+                                <Setter Property="BorderColor" Value="{Binding VariantBackgroundColor, Source={RelativeSource Self}}" />
+                                <Setter Property="BorderWidth" Value="1" />
+                                <Setter Property="TextColor" Value="Black" />
+                            </Trigger>
+                        </Style.Triggers>
                     </Style>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
