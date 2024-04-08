@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResponsiveDesign", "Respons
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContinuousDeployment", "ContinuousDeployment\ContinuousDeployment.csproj", "{26A80178-6C3E-48AC-A774-5E8AE0DE79B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccordionComponent", "AccordionComponent\AccordionComponent.csproj", "{27387359-27D6-401C-A279-C6105C39BF64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccordionComponent", "AccordionComponent\AccordionComponent.csproj", "{27387359-27D6-401C-A279-C6105C39BF64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentsOverStyles", "ComponentsOverStyles\ComponentsOverStyles.csproj", "{A6440F2F-4AEC-450F-95FB-16ACA063A868}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,12 @@ Global
 		{27387359-27D6-401C-A279-C6105C39BF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27387359-27D6-401C-A279-C6105C39BF64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27387359-27D6-401C-A279-C6105C39BF64}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A6440F2F-4AEC-450F-95FB-16ACA063A868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6440F2F-4AEC-450F-95FB-16ACA063A868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6440F2F-4AEC-450F-95FB-16ACA063A868}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A6440F2F-4AEC-450F-95FB-16ACA063A868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6440F2F-4AEC-450F-95FB-16ACA063A868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6440F2F-4AEC-450F-95FB-16ACA063A868}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
