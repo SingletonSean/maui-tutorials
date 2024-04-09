@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ComplexBindings.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ComplexBindings">
+    <ContentPage.Resources>
+        <local:GreaterThanConverter x:Key="GreaterThanConverter" />
+        <local:LessThanConverter x:Key="LessThanConverter" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="25"
+            WidthRequest="600">
+            <VerticalStackLayout>
+                <Label Text="Your Score" />
+                <Entry Text="{Binding YourScore}" />
+            </VerticalStackLayout>
+            <Label Padding="25" HorizontalTextAlignment="Center">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding YourScore, Converter={StaticResource GreaterThanConverter}, ConverterParameter=75}"
+                                TargetType="Label"
+                                Value="True">
+                                <Setter Property="Background" Value="Green" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="Text" Value="Nice job!" />
+                            </DataTrigger>
+                            <MultiTrigger TargetType="Label">
+                                <MultiTrigger.Conditions>
+                                    <BindingCondition Binding="{Binding YourScore, Converter={StaticResource GreaterThanConverter}, ConverterParameter=25}" Value="True" />
+                                    <BindingCondition Binding="{Binding YourScore, Converter={StaticResource LessThanConverter}, ConverterParameter=75}" Value="True" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="Background" Value="Yellow" />
+                                    <Setter Property="Text" Value="Okay..." />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+                            <DataTrigger
+                                Binding="{Binding YourScore, Converter={StaticResource LessThanConverter}, ConverterParameter=25}"
+                                TargetType="Label"
+                                Value="True">
+                                <Setter Property="Background" Value="Red" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="Text" Value="You suck" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
