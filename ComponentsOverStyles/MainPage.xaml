@@ -2,12 +2,36 @@
 <ContentPage
     x:Class="ComponentsOverStyles.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ComponentsOverStyles">
     <ScrollView>
         <VerticalStackLayout Padding="25" Spacing="25">
-            <Button Style="{StaticResource ButtonPrimary}" Text="Primary" />
-            <Button Style="{StaticResource ButtonSecondary}" Text="Secondary" />
-            <Button Style="{StaticResource ButtonPrimaryOutline}" Text="Primary Outline" />
+            <local:AppButton
+                Outline="False"
+                Text="Primary"
+                Variant="Primary" />
+            <local:AppButton
+                Outline="True"
+                Text="Primary Outline"
+                Variant="Primary" />
+
+            <local:AppButton
+                Outline="False"
+                Text="Secondary"
+                Variant="Secondary" />
+            <local:AppButton
+                Outline="True"
+                Text="Secondary Outline"
+                Variant="Secondary" />
+
+            <local:AppButton
+                Outline="False"
+                Text="Tertiary"
+                Variant="Tertiary" />
+            <local:AppButton
+                Outline="True"
+                Text="Tertiary Outline"
+                Variant="Tertiary" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
