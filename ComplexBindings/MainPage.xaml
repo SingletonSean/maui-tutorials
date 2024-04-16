@@ -22,25 +22,22 @@
                     <Style TargetType="Label">
                         <Style.Triggers>
                             <DataTrigger
-                                Binding="{Binding YourScore, Converter={StaticResource GreaterThanConverter}, ConverterParameter=75}"
+                                Binding="{Binding IsGood}"
                                 TargetType="Label"
                                 Value="True">
                                 <Setter Property="Background" Value="Green" />
                                 <Setter Property="TextColor" Value="White" />
                                 <Setter Property="Text" Value="Nice job!" />
                             </DataTrigger>
-                            <MultiTrigger TargetType="Label">
-                                <MultiTrigger.Conditions>
-                                    <BindingCondition Binding="{Binding YourScore, Converter={StaticResource GreaterThanConverter}, ConverterParameter=25}" Value="True" />
-                                    <BindingCondition Binding="{Binding YourScore, Converter={StaticResource LessThanConverter}, ConverterParameter=75}" Value="True" />
-                                </MultiTrigger.Conditions>
-                                <MultiTrigger.Setters>
-                                    <Setter Property="Background" Value="Yellow" />
-                                    <Setter Property="Text" Value="Okay..." />
-                                </MultiTrigger.Setters>
-                            </MultiTrigger>
                             <DataTrigger
-                                Binding="{Binding YourScore, Converter={StaticResource LessThanConverter}, ConverterParameter=25}"
+                                Binding="{Binding IsMedium}"
+                                TargetType="Label"
+                                Value="True">
+                                <Setter Property="Background" Value="Yellow" />
+                                <Setter Property="Text" Value="Okay..." />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding IsBad}"
                                 TargetType="Label"
                                 Value="True">
                                 <Setter Property="Background" Value="Red" />
