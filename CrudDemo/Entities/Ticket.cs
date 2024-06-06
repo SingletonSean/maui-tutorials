@@ -2,11 +2,11 @@
 {
     public class Ticket
     {
-        public string Id { get; }
+        public int Id { get; }
         public string Title { get; }
         public int Points { get; }
 
-        public Ticket(string id, string title, int points)
+        public Ticket(int id, string title, int points)
         {
             Id = id;
             Title = title;
