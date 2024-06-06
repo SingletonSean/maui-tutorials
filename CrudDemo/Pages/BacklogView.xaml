@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CrudDemo.Pages.BacklogView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:shared="clr-namespace:CrudDemo.Shared"
+    Title="Backlog">
+    <ScrollView>
+        <VerticalStackLayout Padding="10,25" MaximumWidthRequest="600">
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="Title" />
+                        <Entry Margin="0,2,0,0" Text="{Binding Title}" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1" Margin="10,0,0,0">
+                        <Label Text="Points" />
+                        <Entry
+                            Margin="0,2,0,0"
+                            HorizontalTextAlignment="Center"
+                            Keyboard="Numeric"
+                            Text="{Binding Points}" />
+                    </VerticalStackLayout>
+                </Grid>
+                <Button
+                    Margin="0,10,0,0"
+                    Command="{Binding CreateTicketCommand}"
+                    Text="Create" />
+            </VerticalStackLayout>
+            <CollectionView Margin="0,20,0,0" ItemsSource="{Binding Tickets}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="0,20">
+                            <shared:If Condition="{Binding IsEditing}">
+                                <shared:If.False>
+                                    <VerticalStackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <HorizontalStackLayout Grid.Column="0">
+                                                <Label Text="{Binding DisplayId}" />
+                                                <Label
+                                                    Margin="10,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Text="{Binding Title}" />
+                                            </HorizontalStackLayout>
+
+                                            <Border
+                                                Grid.Column="1"
+                                                Padding="10,5"
+                                                Background="#eeeeee"
+                                                StrokeShape="RoundRectangle 10"
+                                                StrokeThickness="0">
+                                                <Label FontAttributes="Bold" Text="{Binding Points}" />
+                                            </Border>
+                                        </Grid>
+                                        <HorizontalStackLayout Margin="0,10,0,0">
+                                            <Button
+                                                Margin="0,0,5,0"
+                                                Command="{Binding EditTicketCommand}"
+                                                Text="Edit" />
+                                            <Button
+                                                Margin="5,0,0,0"
+                                                Command="{Binding DeleteTicketCommand}"
+                                                Text="Delete" />
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </shared:If.False>
+                                <shared:If.True>
+                                    <VerticalStackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                Grid.Column="0"
+                                                Text="{Binding DisplayId}"
+                                                VerticalOptions="Center" />
+                                            <Entry
+                                                Grid.Column="1"
+                                                Margin="10,0,0,0"
+                                                Text="{Binding Title}" />
+                                            <Entry
+                                                Grid.Column="2"
+                                                Margin="10,0,0,0"
+                                                HorizontalTextAlignment="Center"
+                                                Keyboard="Numeric"
+                                                Text="{Binding Points}" />
+                                        </Grid>
+                                        <Button
+                                            Margin="0,10,0,0"
+                                            Command="{Binding SaveTicketCommand}"
+                                            Text="Save" />
+                                    </VerticalStackLayout>
+                                </shared:If.True>
+                            </shared:If>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
