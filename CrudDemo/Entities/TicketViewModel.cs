@@ -5,8 +5,8 @@ namespace CrudDemo.Entities
 {
     public partial class TicketViewModel : ObservableObject
     {
-        private readonly Action<TicketViewModel> _onSave;
-        private readonly Action<TicketViewModel> _onDelete;
+        private readonly Func<TicketViewModel, Task> _onSave;
+        private readonly Func<TicketViewModel, Task> _onDelete;
 
         public int Id { get; }
 
@@ -23,8 +23,8 @@ namespace CrudDemo.Entities
 
         public TicketViewModel(
             Ticket ticket, 
-            Action<TicketViewModel> onSave, 
-            Action<TicketViewModel> onDelete)
+            Func<TicketViewModel, Task> onSave,
+            Func<TicketViewModel, Task> onDelete)
         {
             Id = ticket.Id;
             Title = ticket.Title;
@@ -41,16 +41,17 @@ namespace CrudDemo.Entities
         }
 
         [RelayCommand]
-        private void SaveTicket()
+        private async Task SaveTicket()
         {
             IsEditing = false;
-            _onSave(this);
+
+            await _onSave(this);
         }
 
         [RelayCommand]
-        private void DeleteTicket()
+        private async Task DeleteTicket()
         {
-            _onDelete(this);
+            await _onDelete(this);
         }
     }
 }

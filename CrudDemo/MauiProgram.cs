@@ -1,4 +1,5 @@
 ﻿using CrudDemo.Pages;
+using CrudDemo.Shared;
 using Microsoft.Extensions.Logging;
 
 namespace CrudDemo
@@ -19,6 +20,8 @@ namespace CrudDemo
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddSingleton<SqliteConnectionFactory>();
 
             builder.Services.AddSingleton<BacklogView>();
             builder.Services.AddSingleton<BacklogViewModel>();
