@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsOverStyles", "Com
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexBindings", "ComplexBindings\ComplexBindings.csproj", "{23D58DA4-DF6B-45FF-B428-662C45A41C25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudDemo", "CrudDemo\CrudDemo.csproj", "{3BF0982C-8A50-4912-8228-A49536A9A4AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudDemo", "CrudDemo\CrudDemo.csproj", "{3BF0982C-8A50-4912-8228-A49536A9A4AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateBinding", "StateBinding\StateBinding.csproj", "{231F06C7-9BDE-41EC-8CB2-145995D195EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +115,12 @@ Global
 		{3BF0982C-8A50-4912-8228-A49536A9A4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BF0982C-8A50-4912-8228-A49536A9A4AE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3BF0982C-8A50-4912-8228-A49536A9A4AE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{231F06C7-9BDE-41EC-8CB2-145995D195EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{231F06C7-9BDE-41EC-8CB2-145995D195EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{231F06C7-9BDE-41EC-8CB2-145995D195EA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{231F06C7-9BDE-41EC-8CB2-145995D195EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{231F06C7-9BDE-41EC-8CB2-145995D195EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{231F06C7-9BDE-41EC-8CB2-145995D195EA}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
