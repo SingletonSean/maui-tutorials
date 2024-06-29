@@ -5,94 +5,35 @@ namespace StateBinding.Pages
 {
     public partial class MainViewModel : INotifyPropertyChanged
     {
-		private string _firstName = string.Empty;
-		public string FirstName
-		{
-			get
-			{
-				return _firstName;
-			}
-			set
-			{
-				_firstName = value;
-				OnPropertyChanged(nameof(FirstName));
-			}
-		}
+		public record MainViewModelState(
+			string FirstName = "", 
+			string LastName = "", 
+			string Occupation = "", 
+			string FavoriteColor = "", 
+			string FavoriteFood = "",
+			string Output = "");
 
-        private string _lastName = string.Empty;
-        public string LastName
+		private MainViewModelState _state = new MainViewModelState();
+		public MainViewModelState State
         {
-            get
-            {
-                return _lastName;
-            }
-            set
-            {
-                _lastName = value;
-                OnPropertyChanged(nameof(LastName));
-            }
-        }
-
-		private string _occupation = string.Empty;
-		public string Occupation
-		{
 			get
 			{
-				return _occupation;
+				return _state;
 			}
 			set
 			{
-				_occupation = value;
-				OnPropertyChanged(nameof(Occupation));
+                _state = value;
+				OnPropertyChanged(nameof(State));
 			}
 		}
-
-		private string _favoriteColor = string.Empty;
-		public string FavoriteColor
-		{
-			get
-			{
-				return _favoriteColor;
-			}
-			set
-			{
-				_favoriteColor = value;
-				OnPropertyChanged(nameof(FavoriteColor));
-			}
-		}
-
-		private string _favoriteFood = string.Empty;
-		public string FavoriteFood
-		{
-			get
-			{
-				return _favoriteFood;
-			}
-			set
-			{
-				_favoriteFood = value;
-				OnPropertyChanged(nameof(FavoriteFood));
-			}
-		}
-
-        private string _output = string.Empty;
-        public string Output
-        {
-            get
-            {
-                return _output;
-            }
-            set
-            {
-                _output = value;
-                OnPropertyChanged(nameof(Output));
-            }
-        }
 
         [RelayCommand]
 		private void Submit()
 		{
-			Output = $"{FirstName} {LastName} is a {Occupation} who likes {FavoriteFood} and the color {FavoriteColor}";
+			State = State with
+			{
+				Output = $"{State.FirstName} {State.LastName} is a {State.Occupation} who likes {State.FavoriteFood} and the color {State.FavoriteColor}"
+			};
 		}
 
 		public event PropertyChangedEventHandler? PropertyChanged;
