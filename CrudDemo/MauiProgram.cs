@@ -1,4 +1,5 @@
-﻿using CrudDemo.Pages;
+﻿using CrudDemo.Features.DeleteTicket;
+using CrudDemo.Pages;
 using CrudDemo.Shared;
 using Microsoft.Extensions.Logging;
 
@@ -22,6 +23,8 @@ namespace CrudDemo
 #endif
 
             builder.Services.AddSingleton<SqliteConnectionFactory>();
+
+            builder.Services.AddSingleton<DeleteTicketMutation>();
 
             builder.Services.AddSingleton<BacklogView>();
             builder.Services.AddSingleton<BacklogViewModel>();

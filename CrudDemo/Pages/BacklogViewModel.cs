@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CrudDemo.Entities;
+using CrudDemo.Features.DeleteTicket;
 using CrudDemo.Shared;
 using SQLite;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ namespace CrudDemo.Pages
     public partial class BacklogViewModel : ObservableObject
     {
         private readonly SqliteConnectionFactory _connectionFactory;
+        private readonly DeleteTicketMutation _deleteTicketMutation;
 
         private readonly ObservableCollection<TicketViewModel> _tickets;
         public IEnumerable<TicketViewModel> Tickets => _tickets;
@@ -20,11 +22,12 @@ namespace CrudDemo.Pages
         [ObservableProperty]
         private int _points = 0;
 
-        public BacklogViewModel(SqliteConnectionFactory connectionFactory)
+        public BacklogViewModel(SqliteConnectionFactory connectionFactory, DeleteTicketMutation deleteTicketMutation)
         {
             _tickets = new ObservableCollection<TicketViewModel>();
 
             _connectionFactory = connectionFactory;
+            _deleteTicketMutation = deleteTicketMutation;
 
             LoadTicketsCommand.Execute(null);
         }
@@ -38,10 +41,7 @@ namespace CrudDemo.Pages
 
             foreach (TicketDto dto in ticketDtos)
             {
-                _tickets.Add(
-                    new TicketViewModel(new Ticket(dto.Id, dto.Title ?? string.Empty, dto.Points),
-                    HandleTicketSave, 
-                    HandleTicketDelete));
+                _tickets.Add(new TicketViewModel(new Ticket(dto.Id, dto.Title ?? string.Empty, dto.Points)));
             }
         }
 
@@ -58,44 +58,10 @@ namespace CrudDemo.Pages
 
             await database.InsertAsync(ticketDto);
 
-            _tickets.Add(
-                new TicketViewModel(
-                    new Ticket(ticketDto.Id, ticketDto.Title, ticketDto.Points),
-                    HandleTicketSave,
-                    HandleTicketDelete));
+            _tickets.Add(new TicketViewModel(new Ticket(ticketDto.Id, ticketDto.Title, ticketDto.Points)));
 
             Title = string.Empty;
             Points = 0;
-        }
-
-        private async Task HandleTicketSave(TicketViewModel ticket)
-        {
-            ISQLiteAsyncConnection database = _connectionFactory.CreateConnection();
-
-            TicketDto ticketDto = new TicketDto()
-            {
-                Id = ticket.Id,
-                Title = ticket.Title,
-                Points = ticket.Points
-            };
-
-            await database.UpdateAsync(ticketDto);
-        }
-
-        private async Task HandleTicketDelete(TicketViewModel ticket)
-        {
-            ISQLiteAsyncConnection database = _connectionFactory.CreateConnection();
-
-            TicketDto ticketDto = new TicketDto()
-            {
-                Id = ticket.Id,
-                Title = ticket.Title,
-                Points = ticket.Points
-            };
-
-            await database.DeleteAsync(ticketDto);
-
-            _tickets.Remove(ticket);
         }
     }
 }
