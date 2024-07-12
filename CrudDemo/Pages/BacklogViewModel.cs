@@ -41,7 +41,7 @@ namespace CrudDemo.Pages
 
             foreach (TicketDto dto in ticketDtos)
             {
-                _tickets.Add(new TicketViewModel(new Ticket(dto.Id, dto.Title ?? string.Empty, dto.Points)));
+                _tickets.Add(new TicketViewModel(new Ticket(dto.Id, dto.Title ?? string.Empty, dto.Points), HandleTicketDelete));
             }
         }
 
@@ -58,10 +58,17 @@ namespace CrudDemo.Pages
 
             await database.InsertAsync(ticketDto);
 
-            _tickets.Add(new TicketViewModel(new Ticket(ticketDto.Id, ticketDto.Title, ticketDto.Points)));
+            _tickets.Add(new TicketViewModel(new Ticket(ticketDto.Id, ticketDto.Title, ticketDto.Points), HandleTicketDelete));
 
             Title = string.Empty;
             Points = 0;
+        }
+
+        private async Task HandleTicketDelete(TicketViewModel viewModel)
+        {
+            await _deleteTicketMutation.Execute(new Ticket(viewModel.Id, viewModel.Title, viewModel.Points));
+
+            _tickets.Remove(viewModel);
         }
     }
 }
